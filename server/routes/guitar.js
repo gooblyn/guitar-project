@@ -57,7 +57,6 @@ guitarRoutes.delete('/collection/:id', ensureLoggedIn('/'), (req, res) => {
       _id: req.params.id
     })
     .then(o => {
-      console.log("guitarra a borrar: "+req.user);
       User.findByIdAndUpdate(
         req.user._id,
         {$pull: {"guitArray": req.params.id}},

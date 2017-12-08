@@ -58,10 +58,9 @@ amplifierRoutes.delete('/collection/:id', ensureLoggedIn('/'), (req, res) => {
       _id: req.params.id
     })
     .then(o => {
-      console.log("amplifier a borrar: "+req.user);
       User.findByIdAndUpdate(
         req.user._id,
-        {$pull: {"ampliArray": {_id: req.params.id}}},
+        {$pull: {"ampliArray": req.params.id}},
         {safe: true, new : true}
       )
       .then(() => res.json({message: 'Amplifier has been removed!'}))
