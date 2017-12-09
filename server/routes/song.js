@@ -114,21 +114,30 @@ songRoutes.put('/editTab/:id', ensureLoggedIn('/'), (req, res) => {
 
 /* GET - Edit the whole information of the song. */
 songRoutes.get('/edit/:id', ensureLoggedIn('/'), (req, res, next) => {
-  console.log("GET the needed information for crete a new song");
-  User.findOne({_id: req.user._id})
-    .populate('guitArray')
-    .populate('ampliArray')
-    .populate('pedArray')
-    .then(user => res.status(200).json(user))
-    .catch(e => res.status(500).json({error:e.message}));
+  console.log("GET the needed information for edit a song");
+  Song.findById(req.params.id)
+    .populate('guitar')
+    .populate('amplifier')
+    .then(song => {
+      User.findOne({_id: req.user._id})
+        .populate('guitArray')
+        .populate('ampliArray')
+        .populate('pedArray')
+        .then(user => res.status(200).json({user,song}))
+        .catch(e => res.status(500).json({error:e.message}));
+    })
+    .catch(e => res.json(e));
 });
 
-/* POST - Edit the whole information of the song. */
+/* PUT - Edit the whole information of the song. */
 songRoutes.put('/edit/:id', ensureLoggedIn('/'), (req, res) => {
-  // console.log("GET the details of one ampli");
-  // Amplifier.findById(req.params.id)
-  //   .then(o => res.json(o))
-  //   .catch(e => res.json(e));
+  console.log("PUT The edited song");
+  const {name, guitar, amplifier} = req.body;
+  // Pte meter pedales... a ver cómo!!!!
+  const updates = {name, guitar, amplifier};
+  Song.findByIdAndUpdate(req.params.id, updates, {new:true})
+    .then(p => res.status(200).json(p))
+    .catch(e => res.status(500).json({error:e.message}));
 });
 
 /* Delete one song */
