@@ -3,7 +3,7 @@ const Schema = mongoose.Schema;
 
 const songSchema = new Schema({
   name: {type:String, required: true},
-  author: {type:String, required:true},
+  artist: {type:String, required:true},
   tab: {type:String, required:true},
   guitar: { type: Schema.Types.ObjectId, ref:'Guitar' },
   amplifier: { type: Schema.Types.ObjectId, ref:'Amplifier' },
