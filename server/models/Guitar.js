@@ -6,6 +6,11 @@ const guitarSchema = new Schema({
   model: {type:String, required:true},
   year: {type:Number},
   photo: {type:String, default: 'https://image.freepik.com/iconos-gratis/guitarra-clasica_318-9989.jpg'},
+},{
+  timestamps:{
+    createdAt:"created_at",
+    updatedAt:"updated_at"
+  }
 });
 
 const Guitar = mongoose.model('Guitar', guitarSchema);

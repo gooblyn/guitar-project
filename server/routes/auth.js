@@ -66,10 +66,10 @@ authRoutes.get('/logout', ensureLoggedIn('/'), (req, res, next) => {
   res.status(200).json({ message: 'Success' });
 });
 
-// authRoutes.get('/loggedin', (req, res, next) => {
-//   if (req.isAuthenticated())
-//     return res.status(200).json(req.user);
-//   res.status(403).json({ message: 'Unauthorized' });
-// });
+authRoutes.get('/loggedin', (req, res, next) => {
+  if (req.isAuthenticated())
+    return res.status(200).json(req.user);
+  res.status(403).json({ message: 'Unauthorized' });
+});
 
 module.exports = authRoutes;
