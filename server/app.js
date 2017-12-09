@@ -19,7 +19,7 @@ const auth = require('./routes/auth');
 const amplifier = require('./routes/amplifier');
 const guitar = require('./routes/guitar');
 const pedal = require('./routes/pedal');
-// const song = require('./routes/song');
+const song = require('./routes/song');
 const user = require('./routes/user');
 
 // Mongoose configuration
@@ -69,7 +69,7 @@ app.use('/auth', auth);
 app.use('/amplifier', amplifier);
 app.use('/guitar', guitar);
 app.use('/pedal', pedal);
-// app.use('/song', song);
+app.use('/song', song);
 app.use('/user', user);
 
 // catch 404 and forward to error handler

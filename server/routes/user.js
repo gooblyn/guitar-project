@@ -1,7 +1,7 @@
 const express = require('express');
 const path = require('path');
 const User = require('../models/User');
-const Guitar = require('../models/Guitar');
+const Song = require('../models/Song');
 const { ensureLoggedIn, ensureLoggedOut } = require('connect-ensure-login');
 const profileRoutes = express.Router();
 const mongoose = require('mongoose');
@@ -11,16 +11,15 @@ const mongoose = require('mongoose');
 profileRoutes.get('/profile', ensureLoggedIn('/'), (req, res, next) => {
   console.log("GET the user profile");
   User.findOne({_id: req.user._id})
-    // .populate('guitArray')
     .then(user => {
-      Guitar.find({})
-        .then(guitars => {
-          guitars = guitars.filter(e => {
-            if(user.guitArray.indexOf(e._id) != -1) {
+      Song.find({})
+        .then(songs => {
+          songs = songs.filter(e => {
+            if(user.songArray.indexOf(e._id) != -1) {
               return e;
             }
           }).sort('-updatedAt').reverse();
-          res.status(200).json(guitars);
+          res.status(200).json(songs);
         })
     })
     .catch(e => res.status(500).json({error:e.message}));
