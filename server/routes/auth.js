@@ -90,6 +90,7 @@ authRoutes.get('/logout', ensureLoggedIn('/'), (req, res, next) => {
   });
 });
 
+/* GET loggedin - For checking the status of the user. */
 authRoutes.get('/loggedin', (req, res, next) => {
   if (req.isAuthenticated())
     return res.status(200).json(req.user);
