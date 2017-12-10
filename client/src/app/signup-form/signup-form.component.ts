@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {AuthService} from '../services/auth.service';
+import { AuthService } from '../services/auth.service';
 
 @Component({
   selector: 'app-signup-form',
@@ -15,10 +15,9 @@ export class SignupFormComponent implements OnInit {
   }
 
   constructor(public auth: AuthService) { }
-
   ngOnInit() { }
 
-  signup () {
+  signup() {
     const {username, password, name, email} = this.formInfo;
     if (username != "" && password != "" && name != "" && email != "") {
       console.log(`Signing Up with ${username}, ${password}, ${name} and ${email}`);
