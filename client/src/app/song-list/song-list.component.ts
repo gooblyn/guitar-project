@@ -1,20 +1,19 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from '../services/auth.service';
-import { UserService } from '../services/user.service';
+import { SongService } from '../services/song.service';
 import { Router } from '@angular/router';
 
 @Component({
-  selector: 'app-profile',
-  templateUrl: './profile.component.html',
-  styleUrls: ['./profile.component.css']
+  selector: 'app-song-list',
+  templateUrl: './song-list.component.html',
+  styleUrls: ['./song-list.component.css']
 })
-export class ProfileComponent implements OnInit {
+export class SongListComponent implements OnInit {
   songList;
   // user: object;
-
   constructor(
     public auth: AuthService,
-    public userS: UserService,
+    public song: SongService,
     public router: Router){
     //   this.auth.userLoginEvent.subscribe( user =>{
     //   this.user = user;
@@ -22,9 +21,9 @@ export class ProfileComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.userS.getProfileSongs()
-      .map(songList =>  this.songList = songList)
-      .subscribe();
+    this.song.getUserSongs()
+    .map(songList => this.songList = songList)
+    .subscribe();
   }
 
 }

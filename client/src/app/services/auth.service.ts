@@ -12,7 +12,7 @@ const BASEURL = environment.BASEURL + "/auth";
 export class AuthService {
 
   private user:object;
-  private userLoginEvent:EventEmitter<any> = new EventEmitter<any>();
+  public userLoginEvent:EventEmitter<any> = new EventEmitter<any>();
   private options = {withCredentials:true};
 
   constructor(private http: Http) {

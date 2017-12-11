@@ -1,6 +1,6 @@
-<div class="profile">
+<div *ngIf="auth.user" class="profile">
   <div class="pic">
-    <img src="{{ auth.user.photo}}" alt="User photo">
+    <img src="{{ auth.user?.photo }}" alt="User photo">
   </div>
 
   <div class="hi">
@@ -12,7 +12,11 @@
   </div>
 
   <ul *ngFor="let song of songList">
-    <li>{{ song.artist}} - {{ song.name }}  <a [routerLink]="['/']">View Song</a></li>
+    <li>
+      {{ song.artist}} - {{ song.name }}
+      <a [routerLink]="['/']">View Song</a>
+      <a [routerLink]="['/']">Listen</a>
+    </li>
   </ul>
 
   <a [routerLink]="['/']">Add a new song</a>

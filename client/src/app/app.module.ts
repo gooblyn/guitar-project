@@ -16,6 +16,7 @@ import { HomeComponent } from './home/home.component';
 import { SignupFormComponent } from './signup-form/signup-form.component';
 import { LoginFormComponent } from './login-form/login-form.component';
 import { ProfileComponent } from './profile/profile.component';
+import { SongListComponent } from './song-list/song-list.component';
 
 
 @NgModule({
@@ -24,7 +25,8 @@ import { ProfileComponent } from './profile/profile.component';
     HomeComponent,
     SignupFormComponent,
     LoginFormComponent,
-    ProfileComponent
+    ProfileComponent,
+    SongListComponent
   ],
   imports: [
     BrowserModule,
