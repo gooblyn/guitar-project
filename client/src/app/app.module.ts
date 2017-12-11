@@ -18,6 +18,7 @@ import { LoginFormComponent } from './login-form/login-form.component';
 import { ProfileComponent } from './profile/profile.component';
 import { SongListComponent } from './song-list/song-list.component';
 import { NewSongFormComponent } from './new-song-form/new-song-form.component';
+import { EditTabFormComponent } from './edit-tab-form/edit-tab-form.component';
 
 
 @NgModule({
@@ -28,7 +29,8 @@ import { NewSongFormComponent } from './new-song-form/new-song-form.component';
     LoginFormComponent,
     ProfileComponent,
     SongListComponent,
-    NewSongFormComponent
+    NewSongFormComponent,
+    EditTabFormComponent
   ],
   imports: [
     BrowserModule,

@@ -27,7 +27,7 @@ export class NewSongFormComponent implements OnInit {
       console.log(`Import the tab for ${artist} and ${name}`);
       this.song.search(artist, name)
         .map(song => console.log(song))
-        .subscribe() //aqui poner que te lleve a la pagina donde sale el tab
+        .subscribe(() => (this.router.navigate(['/editTab','song._id']))) //aqui poner que te lleve a la pagina donde sale el tab
     }
     else{
       console.log("You must provide an artist name and a song title");
