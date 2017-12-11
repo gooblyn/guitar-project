@@ -3,6 +3,7 @@ import { Observable } from 'rxjs/Observable';
 import { Http, Response } from '@angular/http';
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/catch';
+import 'rxjs/add/observable/throw';
 import {environment} from '../../environments/environment';
 
 const BASEURL = environment.BASEURL + "/auth";
@@ -34,7 +35,7 @@ export class AuthService {
 
   private handleError(e) {
     console.log("AUTH ERROR");
-    return Observable.throw(e.json().message);
+    return Observable.throw(e);
   }
 
   signup (username:string, password:string, name:string, email:string) {

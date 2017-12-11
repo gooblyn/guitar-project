@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from '../services/auth.service';
+import { Router } from '@angular/router';
 
 interface loginInfo {
   username: string,
@@ -18,7 +19,9 @@ export class LoginFormComponent implements OnInit {
     password: ""
   }
 
-  constructor (public auth: AuthService) { }
+  constructor (
+    public auth: AuthService,
+    public router: Router) { }
 
   ngOnInit() { }
 
@@ -28,7 +31,7 @@ export class LoginFormComponent implements OnInit {
       console.log(`Logged in with ${username} and ${password}`);
       this.auth.login(username, password)
         .map(user => console.log(user))
-        .subscribe();
+        .subscribe(() => (this.router.navigate(['/profile'])));
     }
     else{
       console.log("You must provide a valid username and a password");

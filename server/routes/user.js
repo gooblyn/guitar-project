@@ -16,16 +16,12 @@ profileRoutes.get('/profile', ensureLoggedIn('/'), (req, res, next) => {
   User.findOne({
       _id: req.user._id
     })
+    .populate('songArray')
     .then(user => {
-      Song.find({})
-        .then(songs => {
-          songs = songs.filter(e => {
-            if (user.songArray.indexOf(e._id) != -1) {
-              return e;
-            }
-          }).sort('-updatedAt').reverse();
-          res.status(200).json(songs);
-        })
+      user.songArray.sort(function(a,b){
+        return new Date(b.updated_at) - new Date(a.updated_at);
+      })
+      res.status(200).json(user.songArray.splice(0, 1));
     })
     .catch(e => res.status(500).json({
       error: e.message

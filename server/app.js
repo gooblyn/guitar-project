@@ -14,7 +14,6 @@ const cors = require('cors');
 const app = express();
 
 //Define controllers
-const index = require('./routes/index');
 const auth = require('./routes/auth');
 const amplifier = require('./routes/amplifier');
 const guitar = require('./routes/guitar');
@@ -39,10 +38,6 @@ var corsOptions = {
 };
 app.use(cors(corsOptions));
 
-// view engine setup
-app.set('views', path.join(__dirname, 'views'));
-app.set('view engine', 'ejs');
-
 // uncomment after placing your favicon in /public
 //app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
 app.use(logger('dev'));
@@ -64,7 +59,6 @@ app.use(passport.initialize());
 app.use(passport.session());
 
 // Routes
-app.use('/', index);
 app.use('/auth', auth);
 app.use('/amplifier', amplifier);
 app.use('/guitar', guitar);
@@ -87,7 +81,7 @@ app.use(function(err, req, res, next) {
 
   // render the error page
   res.status(err.status || 500);
-  res.render('error');
+  // res.render('error');
 });
 
 module.exports = app;

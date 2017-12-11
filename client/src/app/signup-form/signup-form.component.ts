@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from '../services/auth.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-signup-form',
@@ -14,7 +15,10 @@ export class SignupFormComponent implements OnInit {
     email: ""
   }
 
-  constructor(public auth: AuthService) { }
+  constructor(
+    public auth: AuthService,
+    public router: Router
+  ) { }
   ngOnInit() { }
 
   signup() {
@@ -22,8 +26,8 @@ export class SignupFormComponent implements OnInit {
     if (username != "" && password != "" && name != "" && email != "") {
       console.log(`Signing Up with ${username}, ${password}, ${name} and ${email}`);
       this.auth.signup(username, password,name, email)
-        .map(user=>console.log(user))
-        .subscribe();
+        .map(user => console.log(user))
+        .subscribe(() => (this.router.navigate(['/profile'])));
     }
     else {
       console.log("You must fill all the fields");

@@ -13,6 +13,7 @@ import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
 import { SignupFormComponent } from './signup-form/signup-form.component';
 import { LoginFormComponent } from './login-form/login-form.component';
+import { ProfileComponent } from './profile/profile.component';
 
 
 @NgModule({
@@ -20,7 +21,8 @@ import { LoginFormComponent } from './login-form/login-form.component';
     AppComponent,
     HomeComponent,
     SignupFormComponent,
-    LoginFormComponent
+    LoginFormComponent,
+    ProfileComponent
   ],
   imports: [
     BrowserModule,
