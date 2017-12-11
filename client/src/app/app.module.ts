@@ -6,6 +6,8 @@ import { FormsModule } from '@angular/forms';
 
 import { AuthService } from './services/auth.service';
 import { IsLoggedInService } from './services/isLoggedIn.canactivate.service';
+import { UserService } from './services/user.service';
+import { SongService } from './services/song.service';
 
 import {routes} from './routes';
 
@@ -30,7 +32,7 @@ import { ProfileComponent } from './profile/profile.component';
     HttpModule,
     RouterModule.forRoot(routes)
   ],
-  providers: [AuthService, IsLoggedInService],
+  providers: [AuthService, IsLoggedInService, UserService, SongService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -1,0 +1,20 @@
+.profile {
+  text-align: center;
+  font-family: 'Rock Salt', cursive;
+}
+
+.pic{
+  margin: 40px;
+}
+
+.pic img{
+  width: 100px;
+}
+
+a {
+  color: black;
+}
+
+li {
+  list-style: none;
+}

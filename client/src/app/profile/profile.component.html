@@ -1,3 +1,19 @@
-<p>
-  profile works!
-</p>
+<div class="profile">
+  <div class="pic">
+    <img src="{{ auth.user.photo}}" alt="User photo">
+  </div>
+
+  <div class="hi">
+    <h2>Hello {{ auth.user.username}}</h2>
+  </div>
+
+  <div class="lastSongs">
+    <h3>This are the last songs you've been working on:</h3>
+  </div>
+
+  <ul *ngFor="let song of songList">
+    <li>{{ song.artist}} - {{ song.name }}  <a [routerLink]="['/']">View Song</a></li>
+  </ul>
+
+  <a [routerLink]="['/']">Add a new song</a>
+</div>
