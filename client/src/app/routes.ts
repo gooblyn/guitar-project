@@ -5,6 +5,7 @@ import { SignupFormComponent } from './signup-form/signup-form.component';
 import { LoginFormComponent } from './login-form/login-form.component';
 import { ProfileComponent } from './profile/profile.component';
 import { SongListComponent } from './song-list/song-list.component';
+import { NewSongFormComponent } from './new-song-form/new-song-form.component';
 
 export const routes: Routes = [
     { path: '', component: HomeComponent },
@@ -12,5 +13,6 @@ export const routes: Routes = [
     { path: 'login',  component: LoginFormComponent,  },
     { path: 'profile',  component: ProfileComponent,  },
     { path: 'songCollection',  component: SongListComponent,  },
+    { path: 'newSong',  component: NewSongFormComponent,  },
     { path: '**', redirectTo: '' }
 ];

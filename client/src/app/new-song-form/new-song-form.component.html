@@ -1,0 +1,12 @@
+<form >
+  <h2> Add a New song to your collection: </h2>
+  <label> Artist: </label>
+  <input type="text" [(ngModel)]="formInfo.artist" name="artist"/>
+  <br>
+  <label> Title: </label>
+  <input type="text" [(ngModel)]="formInfo.name" name="name"/>
+  <br>
+  <button (click)="create()"> CREATE </button>
+  <button (click)="search()"> IMPORT </button>
+</form>
+<a [routerLink]="['/profile']">Go back</a>

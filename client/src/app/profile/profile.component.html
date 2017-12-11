@@ -19,5 +19,6 @@
     </li>
   </ul>
 
-  <a [routerLink]="['/']">Add a new song</a>
+  <a [routerLink]="['/newSong']">Add a new song</a><br>
+  <button (click)="auth.logout().subscribe()">Logout </button>
 </div>

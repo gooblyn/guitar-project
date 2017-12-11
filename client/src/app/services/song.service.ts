@@ -19,5 +19,14 @@ export class SongService {
     return this.http.get(`${BASE_URL}/collection`, this.options)
       .map(res => res.json())
   }
-  
+
+  search (artist:string, name:string){
+    return this.http.post(`${BASE_URL}/search`, {name,artist}, this.options)
+      .map(res => res.json())
+  }
+
+  create (artist:string, name:string){
+    return this.http.post(`${BASE_URL}/new`, {name,artist}, this.options)
+      .map(res => res.json())
+  }
 }
