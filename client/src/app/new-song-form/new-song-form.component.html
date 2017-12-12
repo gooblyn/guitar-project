@@ -11,5 +11,5 @@
 <!-- Se hace con modals -->
 <div *ngIf="tab">
   <h2>{{ tab.artist }} - {{ tab.name }}</h2>
-  <div [innerHtml]="tab.tab"></div>
+  <div [innerHtml]="tab.tab" contentEditable="true"></div>
 <a [routerLink]="['/profile']">Go back</a>

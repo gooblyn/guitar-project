@@ -45,7 +45,7 @@ export class NewSongFormComponent implements OnInit{
       console.log(`Creating a new song for the artist ${artist} with the tittle ${name}`);
       this.song.create(artist, name)
         .map(song => console.log(song))
-        .subscribe() //aqui poner que te lleve a la pagina donde sale el tab
+        .subscribe()
     }
     else{
       console.log("You must provide an artist name and a song title");
