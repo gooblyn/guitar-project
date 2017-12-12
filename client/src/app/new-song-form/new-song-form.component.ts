@@ -18,6 +18,7 @@ export class NewSongFormComponent implements OnInit{
   }
 
   tab;
+
   constructor(
     public auth: AuthService,
     public song: SongService,
@@ -56,4 +57,22 @@ export class NewSongFormComponent implements OnInit{
     }
   }
 
+  cancel() {
+    const song = this.tab._id;
+    this.song.cancel(song)
+      .subscribe(() => {
+        this.router.navigate(['/profile']);
+        console.log("delete the song");
+      });
+  }
+
+  save() {
+    const song = this.tab._id;
+    const tab = this.tab.textTab;
+    this.song.save(song, tab)
+      .subscribe(() => {
+        this.router.navigate(['/profile']);
+        console.log("updated the song");
+      })
+  }
 }

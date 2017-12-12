@@ -8,10 +8,12 @@
   <button (click)="create()"> CREATE </button>
   <button (click)="search()"> IMPORT </button>
 </form>
-<!-- Se hace con modals -->
 
 <form *ngIf="tab">
   <h2>{{ tab.artist }} - {{ tab.name }}:</h2>
-  <textarea [(ngModel)]="tab.tab" name="tablature" rows="200" cols="100"></textarea>
-  {{ tab | json }}
+  <textarea [(ngModel)]="tab.textTab" name="tablature" rows="100" cols="100"></textarea>
+  <button (click)="cancel()"> CANCEL </button>
+  <button (click)="save()"> SAVE </button>
+</form>
+
 <a [routerLink]="['/profile']">Go back</a>

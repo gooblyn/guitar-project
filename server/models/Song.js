@@ -4,7 +4,8 @@ const Schema = mongoose.Schema;
 const songSchema = new Schema({
   name: {type:String, required: true},
   artist: {type:String, required:true},
-  tab: {type:String, required:true},
+  textTab: {type:String, required:true},
+  htmlTab: {type:String, required:true},
   guitar: { type: Schema.Types.ObjectId, ref:'Guitar' },
   amplifier: { type: Schema.Types.ObjectId, ref:'Amplifier' },
   pedals: {type: [{

@@ -29,4 +29,15 @@ export class SongService {
     return this.http.post(`${BASE_URL}/new`, {name,artist}, this.options)
       .map(res => res.json())
   }
+
+  cancel (song: any){
+    return this.http.delete(`${BASE_URL}/${song}`, this.options)
+      .map(res=>res.json())
+  }
+
+  save (song, tab) {
+    const textTab = tab;
+    return this.http.put(`${BASE_URL}/editTab/${song}`, {textTab}, this.options)
+      .map((res) => res.json());
+  }
 }
