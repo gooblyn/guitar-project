@@ -9,8 +9,7 @@
   <button (click)="search()"> IMPORT </button>
 </form>
 <!-- Se hace con modals -->
-<div *ngIf=tab>
+<div *ngIf="tab">
   <h2>{{ tab.artist }} - {{ tab.name }}</h2>
-  {{ tab.tab}}
-</div>
+  <div [innerHtml]="tab.tab"></div>
 <a [routerLink]="['/profile']">Go back</a>

@@ -1,14 +1,16 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit} from '@angular/core';
 import { AuthService } from '../services/auth.service';
 import { SongService } from '../services/song.service';
 import { Router } from '@angular/router';
+
 
 @Component({
   selector: 'app-new-song-form',
   templateUrl: './new-song-form.component.html',
   styleUrls: ['./new-song-form.component.css']
 })
-export class NewSongFormComponent implements OnInit {
+
+export class NewSongFormComponent implements OnInit{
 
   formInfo = {
     artist:"",
@@ -19,7 +21,8 @@ export class NewSongFormComponent implements OnInit {
   constructor(
     public auth: AuthService,
     public song: SongService,
-    public router: Router) { }
+    public router: Router
+  ) { }
 
   ngOnInit() { }
 
