@@ -31,7 +31,9 @@ export class NewSongFormComponent implements OnInit{
     if (name != "" && artist != ""){
       console.log(`Import the tab for ${artist} and ${name}`);
       this.song.search(artist, name)
-        .map(song => this.tab = song.song)
+        .map(song => {
+          this.tab = song.song;
+        })
         .subscribe();
     }
     else{
@@ -44,8 +46,10 @@ export class NewSongFormComponent implements OnInit{
     if (name != "" && artist != ""){
       console.log(`Creating a new song for the artist ${artist} with the tittle ${name}`);
       this.song.create(artist, name)
-        .map(song => console.log(song))
-        .subscribe()
+        .map(song => {
+          this.tab = song.song;
+        })
+        .subscribe();
     }
     else{
       console.log("You must provide an artist name and a song title");

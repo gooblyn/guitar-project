@@ -45,7 +45,8 @@ songRoutes.post('/search', ensureLoggedIn('/'), (req, res) => {
           const song = new Song({
             name,
             artist,
-            tab: tab.content.html.replace(/\n/g,"<br>")
+            // tab: tab.content.html.replace(/\n/g,"<br>")
+            tab: tab.content.text
           });
           song.save()
           .then((song) => {

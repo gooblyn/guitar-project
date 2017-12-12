@@ -9,7 +9,9 @@
   <button (click)="search()"> IMPORT </button>
 </form>
 <!-- Se hace con modals -->
-<div *ngIf="tab">
-  <h2>{{ tab.artist }} - {{ tab.name }}</h2>
-  <div [innerHtml]="tab.tab" contentEditable="true"></div>
+
+<form *ngIf="tab">
+  <h2>{{ tab.artist }} - {{ tab.name }}:</h2>
+  <textarea [(ngModel)]="tab.tab" name="tablature" rows="200" cols="100"></textarea>
+  {{ tab | json }}
 <a [routerLink]="['/profile']">Go back</a>

@@ -12,9 +12,9 @@ export const routes: Routes = [
     { path: '', component: HomeComponent, },
     { path: 'signup',  component: SignupFormComponent, },
     { path: 'login',  component: LoginFormComponent, },
-    { path: 'profile',  component: ProfileComponent, canActivate: [IsLoggedInService] },
-    { path: 'songCollection',  component: SongListComponent, canActivate: [IsLoggedInService] },
-    { path: 'newSong',  component: NewSongFormComponent, canActivate: [IsLoggedInService] },
-    { path: 'editTab/:id',  component: EditTabFormComponent, canActivate: [IsLoggedInService] },
+    { path: 'profile',  component: ProfileComponent,  },
+    { path: 'songCollection',  component: SongListComponent,  },
+    { path: 'newSong',  component: NewSongFormComponent,  },
+    { path: 'editTab/:id',  component: EditTabFormComponent,  },
     { path: '**', redirectTo: '' }
 ];
