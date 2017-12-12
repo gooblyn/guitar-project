@@ -8,6 +8,7 @@ import { AuthService } from './services/auth.service';
 import { IsLoggedInService } from './services/isLoggedIn.canactivate.service';
 import { UserService } from './services/user.service';
 import { SongService } from './services/song.service';
+import { GuitarService } from './services/guitar.service';
 
 import {routes} from './routes';
 
@@ -19,6 +20,7 @@ import { ProfileComponent } from './profile/profile.component';
 import { SongListComponent } from './song-list/song-list.component';
 import { NewSongFormComponent } from './new-song-form/new-song-form.component';
 import { SongDetailsComponent } from './song-details/song-details.component';
+import { NewGuitarFormComponent } from './new-guitar-form/new-guitar-form.component';
 
 
 @NgModule({
@@ -30,7 +32,8 @@ import { SongDetailsComponent } from './song-details/song-details.component';
     ProfileComponent,
     SongListComponent,
     NewSongFormComponent,
-    SongDetailsComponent
+    SongDetailsComponent,
+    NewGuitarFormComponent
   ],
   imports: [
     BrowserModule,
@@ -38,7 +41,7 @@ import { SongDetailsComponent } from './song-details/song-details.component';
     HttpModule,
     RouterModule.forRoot(routes)
   ],
-  providers: [AuthService, IsLoggedInService, UserService, SongService],
+  providers: [AuthService, IsLoggedInService, UserService, SongService, GuitarService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

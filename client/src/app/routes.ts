@@ -7,6 +7,7 @@ import { ProfileComponent } from './profile/profile.component';
 import { SongListComponent } from './song-list/song-list.component';
 import { NewSongFormComponent } from './new-song-form/new-song-form.component';
 import { SongDetailsComponent } from './song-details/song-details.component';
+import { NewGuitarFormComponent } from './new-guitar-form/new-guitar-form.component';
 
 export const routes: Routes = [
     { path: '', component: HomeComponent, },
@@ -16,5 +17,6 @@ export const routes: Routes = [
     { path: 'songCollection',  component: SongListComponent,  },
     { path: 'newSong',  component: NewSongFormComponent,  },
     { path: 'song/:id',  component: SongDetailsComponent,  },
+    { path: 'newGuitar',  component: NewGuitarFormComponent,  },
     { path: '**', redirectTo: '' }
 ];
