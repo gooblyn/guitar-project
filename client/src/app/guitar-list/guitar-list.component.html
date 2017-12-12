@@ -1,0 +1,23 @@
+<div *ngIf="auth.user" class="guitarList">
+  <div class="pic">
+    <img src="{{ auth.user?.photo }}" alt="User photo">
+  </div>
+
+  <div class="h1">
+    <h2>{{ auth.user.username}}</h2>
+  </div>
+
+  <div class="guitarCollection">
+    <h3>Your guitars:</h3>
+  </div>
+
+  <ul *ngFor="let guitar of guitarList">
+    <li>
+      {{ guitar.trade }} - "{{ guitar.model }}" - {{ guitar.year }}
+      <a [routerLink]="['/guitar', guitar._id]">View</a>
+    </li>
+  </ul>
+
+  <a [routerLink]="['/newGuitar']">Add a new guitar</a><br>
+  <a [routerLink]="['/profile']">Go back</a>
+</div>

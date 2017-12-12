@@ -31,9 +31,8 @@ export class NewGuitarFormComponent implements OnInit {
     if (trade != "" && model != ""){
       console.log(`Creating a new guitar`);
       this.guitar.create(trade, model, year)
-        // .map(() )
         .subscribe(() => {
-          this.router.navigate(['/profile']);
+          this.router.navigate(['/guitarCollection']);
           console.log("Gutar created");
         });
     }

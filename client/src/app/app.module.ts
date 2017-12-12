@@ -21,6 +21,8 @@ import { SongListComponent } from './song-list/song-list.component';
 import { NewSongFormComponent } from './new-song-form/new-song-form.component';
 import { SongDetailsComponent } from './song-details/song-details.component';
 import { NewGuitarFormComponent } from './new-guitar-form/new-guitar-form.component';
+import { GuitarListComponent } from './guitar-list/guitar-list.component';
+import { GuitarDetailsComponent } from './guitar-details/guitar-details.component';
 
 
 @NgModule({
@@ -33,7 +35,9 @@ import { NewGuitarFormComponent } from './new-guitar-form/new-guitar-form.compon
     SongListComponent,
     NewSongFormComponent,
     SongDetailsComponent,
-    NewGuitarFormComponent
+    NewGuitarFormComponent,
+    GuitarListComponent,
+    GuitarDetailsComponent
   ],
   imports: [
     BrowserModule,
