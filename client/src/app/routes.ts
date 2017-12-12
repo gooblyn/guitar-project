@@ -9,12 +9,12 @@ import { NewSongFormComponent } from './new-song-form/new-song-form.component';
 import { EditTabFormComponent } from './edit-tab-form/edit-tab-form.component';
 
 export const routes: Routes = [
-    { path: '', component: HomeComponent },
-    { path: 'signup',  component: SignupFormComponent,  },
-    { path: 'login',  component: LoginFormComponent,  },
-    { path: 'profile',  component: ProfileComponent,  },
-    { path: 'songCollection',  component: SongListComponent,  },
-    { path: 'newSong',  component: NewSongFormComponent,  },
-    { path: 'editTab/:id',  component: EditTabFormComponent,  },
+    { path: '', component: HomeComponent, },
+    { path: 'signup',  component: SignupFormComponent, },
+    { path: 'login',  component: LoginFormComponent, },
+    { path: 'profile',  component: ProfileComponent, canActivate: [IsLoggedInService] },
+    { path: 'songCollection',  component: SongListComponent, canActivate: [IsLoggedInService] },
+    { path: 'newSong',  component: NewSongFormComponent, canActivate: [IsLoggedInService] },
+    { path: 'editTab/:id',  component: EditTabFormComponent, canActivate: [IsLoggedInService] },
     { path: '**', redirectTo: '' }
 ];

@@ -10,16 +10,11 @@ import { Router } from '@angular/router';
 })
 export class ProfileComponent implements OnInit {
   songList;
-  // user: object;
 
   constructor(
     public auth: AuthService,
     public userS: UserService,
-    public router: Router){
-    //   this.auth.userLoginEvent.subscribe( user =>{
-    //   this.user = user;
-    // })
-  }
+    public router: Router){ }
 
   ngOnInit() {
     this.userS.getProfileSongs()
@@ -27,4 +22,7 @@ export class ProfileComponent implements OnInit {
       .subscribe();
   }
 
+  logout(){
+    this.auth.logout().subscribe(()=> this.router.navigate(['/']));
+  }
 }
