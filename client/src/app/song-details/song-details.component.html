@@ -2,5 +2,6 @@
   <h2>{{ song.artist }} - {{ song.name }}</h2>
   <br>
   <textarea name="tablature" rows="100" cols="100" disabled="disabled">{{song.textTab}}</textarea>
-
+  <button (click)="deleteSong()"> Delete </button>-
+  <a [routerLink]="['/songCollection']">Go back</a>
 </div>

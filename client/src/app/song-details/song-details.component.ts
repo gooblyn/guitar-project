@@ -11,6 +11,7 @@ import { Router, ActivatedRoute } from '@angular/router';
 export class SongDetailsComponent implements OnInit {
   song: any;
   constructor(
+    private router: Router,
     private route: ActivatedRoute,
     private songServ: SongService,
     private auth: AuthService
@@ -26,6 +27,14 @@ export class SongDetailsComponent implements OnInit {
     this.songServ.get(id)
       .subscribe((song) => {
         this.song = song;
+      });
+  }
+
+  deleteSong() {
+    this.songServ.cancel(this.song._id)
+      .subscribe(() => {
+        this.router.navigate(['/songCollection']);
+        console.log("delete the song");
       });
   }
 }
