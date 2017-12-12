@@ -20,6 +20,11 @@ export class SongService {
       .map(res => res.json())
   }
 
+  get(id) {
+    return this.http.get(`${BASE_URL}/collection/${id}`, this.options)
+      .map((res) => res.json());
+  }
+
   search (artist:string, name:string){
     return this.http.post(`${BASE_URL}/search`, {name,artist}, this.options)
       .map(res => res.json())

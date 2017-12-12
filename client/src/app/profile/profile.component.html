@@ -14,7 +14,7 @@
   <ul *ngFor="let song of songList">
     <li>
       {{ song.artist}} - {{ song.name }}
-      <a [routerLink]="['/']">View Song</a>
+      <a [routerLink]="['/song', song._id]">View Song</a>
       <a [routerLink]="['/']">Listen</a>
     </li>
   </ul>

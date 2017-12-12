@@ -14,9 +14,9 @@
   <ul *ngFor="let song of songList">
     <li>
       {{ song.artist}} - "{{ song.name }}"
-      <a [routerLink]="['/']">View Song</a> -
-      <a [routerLink]="['/']">Edit Song</a> -
-      <a [routerLink]="['/']">Edit Tab</a> -
+      <a [routerLink]="['/song', song._id]">View</a> -
+      <a [routerLink]="['/']">Edit</a> -
+      <a [routerLink]="['/']">Delete</a> -
       <a [routerLink]="['/']">Listen</a>
     </li>
   </ul>

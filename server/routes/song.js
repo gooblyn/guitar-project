@@ -17,6 +17,14 @@ songRoutes.get('/collection', ensureLoggedIn('/'), (req, res, next) => {
     .catch(e => res.status(500).json({error:e.message}));
 });
 
+/* GET - Details of one song */
+songRoutes.get('/collection/:id', ensureLoggedIn('/'), (req, res) => {
+  console.log("GET the details of one song");
+  Song.findById(req.params.id)
+    .then(o => res.json(o))
+    .catch(e => res.json(e));
+});
+
 /* POST - Search the tab for the song. */
 songRoutes.post('/search', ensureLoggedIn('/'), (req, res) => {
   console.log("POST Search the song for the tab");
@@ -96,26 +104,7 @@ songRoutes.post('/new', ensureLoggedIn('/'), (req, res) => {
     .catch(err => res.send(err));
 });
 
-/* GET - Info for edit the tab of one song. */
-songRoutes.get('/editTab/:id', ensureLoggedIn('/'), (req, res) => {
-  console.log("GET the edit tab page");
-  Song.findById(req.params.id)
-    .then(o => res.json(o))
-    .catch(e => res.json(e));
-});
-
-/* PUT - Edit the tab of a song. */
-// songRoutes.put('/editTab/:id', ensureLoggedIn('/'), (req, res) => {
-//   console.log("PUT The edited tab");
-//   const textTab = req.body.tab;
-//   console.log(textTab);
-//   console.log(req.params.id);
-//   Song.findByIdAndUpdate(req.params.id, textTab, {new:true})
-//     .then(p => {
-//       console.log ("entro");
-//       res.status(200).json(p);})
-//     .catch(e => res.status(500).json({error:e.message}));
-// });
+/* PUT - Update the tab of one song */
 songRoutes.put('/editTab/:id', ensureLoggedIn('/'), (req, res) => {
   console.log("PUT The edited tab");
   const {textTab} = req.body;
