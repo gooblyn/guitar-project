@@ -1,0 +1,23 @@
+<div *ngIf="auth.user" class="pedalList">
+  <div class="pic">
+    <img src="{{ auth.user?.photo }}" alt="User photo">
+  </div>
+
+  <div class="h1">
+    <h2>{{ auth.user.username}}</h2>
+  </div>
+
+  <div class="pedalCollection">
+    <h3>Your pedals:</h3>
+  </div>
+
+  <ul *ngFor="let pedal of pedalList">
+    <li>
+      {{ pedal.trade }} - {{ pedal.model }} - {{ pedal.pedType }}
+      <a [routerLink]="['/pedal', pedal._id]">View</a>
+    </li>
+  </ul>
+
+  <a [routerLink]="['/newPedal']">Add a new pedal</a><br>
+  <a [routerLink]="['/profile']">Go back</a>
+</div>

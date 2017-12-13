@@ -13,12 +13,14 @@ const mongoose = require('mongoose');
 /* POST - Create New Pedal. */
 pedalRoutes.post('/new', ensureLoggedIn('/'), (req, res) => {
   console.log("POST New Pedal");
+  console.log(req.body);
   const pedal = new Pedal({
-    trade: req.body.trade,
-    model: req.body.model,
-    pedType: req.body.pedType,
-    setArray: req.body.setArray
+    trade: req.body.info.trade,
+    model: req.body.info.model,
+    pedType: req.body.info.pedType,
+    setArray: req.body.info.setArr
   });
+  console.log(pedal);
   pedal.save()
     .then((pedal) => {
       User.findByIdAndUpdate(

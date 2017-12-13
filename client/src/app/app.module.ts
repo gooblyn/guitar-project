@@ -10,6 +10,7 @@ import { UserService } from './services/user.service';
 import { SongService } from './services/song.service';
 import { GuitarService } from './services/guitar.service';
 import { AmplifierService } from './services/ampli.service';
+import { PedalService } from './services/pedal.service';
 
 import {routes} from './routes';
 
@@ -27,6 +28,9 @@ import { GuitarDetailsComponent } from './guitar-details/guitar-details.componen
 import { NewAmpliFormComponent } from './new-ampli-form/new-ampli-form.component';
 import { AmpliListComponent } from './ampli-list/ampli-list.component';
 import { AmpliDetailsComponent } from './ampli-details/ampli-details.component';
+import { NewPedalFormComponent } from './new-pedal-form/new-pedal-form.component';
+import { PedalDetailsComponent } from './pedal-details/pedal-details.component';
+import { PedalListComponent } from './pedal-list/pedal-list.component';
 
 
 @NgModule({
@@ -44,7 +48,10 @@ import { AmpliDetailsComponent } from './ampli-details/ampli-details.component';
     GuitarDetailsComponent,
     NewAmpliFormComponent,
     AmpliListComponent,
-    AmpliDetailsComponent
+    AmpliDetailsComponent,
+    NewPedalFormComponent,
+    PedalDetailsComponent,
+    PedalListComponent
   ],
   imports: [
     BrowserModule,
@@ -52,7 +59,7 @@ import { AmpliDetailsComponent } from './ampli-details/ampli-details.component';
     HttpModule,
     RouterModule.forRoot(routes)
   ],
-  providers: [AuthService, IsLoggedInService, UserService, SongService, GuitarService, AmplifierService],
+  providers: [AuthService, IsLoggedInService, UserService, SongService, GuitarService, AmplifierService, PedalService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
