@@ -1,3 +1,12 @@
-<p>
-  pedal-details works!
-</p>
+<div *ngIf="pedal">
+  <h2>{{ pedal.trade }} - {{ pedal.model }} - {{pedal.pedType}}</h2>
+  <br>
+  <h3>Pedal Settings:</h3>
+  <ul *ngFor="let set of setPedal">
+    <li>{{ set }}</li>
+  </ul>
+
+  <img [src]="pedal.photo" alt="">
+  <button (click)="deletePedal()"> Delete </button>-
+  <a [routerLink]="['/pedalCollection']">Go back</a>
+</div>
