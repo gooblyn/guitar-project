@@ -1,0 +1,7 @@
+<div *ngIf="ampli">
+  <h2>{{ ampli.trade }} - {{ ampli.model }} - {{ampli.power}} - {{ampli.year}}</h2>
+  <br>
+  <img [src]="ampli.photo" alt="">
+  <button (click)="deleteAmpli()"> Delete </button>-
+  <a [routerLink]="['/ampliCollection']">Go back</a>
+</div>

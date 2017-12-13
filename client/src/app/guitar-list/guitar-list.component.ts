@@ -10,6 +10,7 @@ import { Router } from '@angular/router';
 })
 export class GuitarListComponent implements OnInit {
   guitarList;
+
   constructor(
     public auth: AuthService,
     public guitar: GuitarService,

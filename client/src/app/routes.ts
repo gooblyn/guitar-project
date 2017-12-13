@@ -10,6 +10,9 @@ import { SongDetailsComponent } from './song-details/song-details.component';
 import { NewGuitarFormComponent } from './new-guitar-form/new-guitar-form.component';
 import { GuitarListComponent } from './guitar-list/guitar-list.component';
 import { GuitarDetailsComponent } from './guitar-details/guitar-details.component';
+import { NewAmpliFormComponent } from './new-ampli-form/new-ampli-form.component';
+import { AmpliListComponent } from './ampli-list/ampli-list.component';
+import { AmpliDetailsComponent } from './ampli-details/ampli-details.component';
 
 export const routes: Routes = [
     { path: '', component: HomeComponent, },
@@ -22,5 +25,8 @@ export const routes: Routes = [
     { path: 'newGuitar',  component: NewGuitarFormComponent,  },
     { path: 'guitarCollection',  component: GuitarListComponent,  },
     { path: 'guitar/:id',  component: GuitarDetailsComponent,  },
+    { path: 'newAmpli',  component: NewAmpliFormComponent,  },
+    { path: 'ampliCollection',  component: AmpliListComponent,  },
+    { path: 'ampli/:id',  component: AmpliDetailsComponent,  },
     { path: '**', redirectTo: '' }
 ];

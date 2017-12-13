@@ -1,0 +1,18 @@
+<form>
+  <h2> Add a New ampli to your collection: </h2>
+  <label> Trade: </label>
+  <input type="text" [(ngModel)]="formInfo.trade" name="trade"/>
+  <br>
+  <label> Model: </label>
+  <input type="text" [(ngModel)]="formInfo.model" name="model"/>
+  <br>
+  <label> Power: </label>
+  <input type="text" [(ngModel)]="formInfo.power" name="power"/>
+  <br>
+  <label> Year: </label>
+  <input type="number" [(ngModel)]="formInfo.year" name="year"/>
+  <br>
+  <button (click)="create()"> CREATE </button>
+</form>
+
+<a [routerLink]="['/ampliCollection']">Go back</a>

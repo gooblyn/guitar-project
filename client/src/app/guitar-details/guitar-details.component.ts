@@ -9,7 +9,9 @@ import { Router, ActivatedRoute } from '@angular/router';
   styleUrls: ['./guitar-details.component.css']
 })
 export class GuitarDetailsComponent implements OnInit {
+
   guitar: any;
+
   constructor(
     private router: Router,
     private route: ActivatedRoute,
