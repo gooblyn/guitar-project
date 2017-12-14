@@ -31,6 +31,7 @@ import { AmpliDetailsComponent } from './ampli-details/ampli-details.component';
 import { NewPedalFormComponent } from './new-pedal-form/new-pedal-form.component';
 import { PedalDetailsComponent } from './pedal-details/pedal-details.component';
 import { PedalListComponent } from './pedal-list/pedal-list.component';
+import { EditSongFormComponent } from './edit-song-form/edit-song-form.component';
 
 
 @NgModule({
@@ -51,7 +52,8 @@ import { PedalListComponent } from './pedal-list/pedal-list.component';
     AmpliDetailsComponent,
     NewPedalFormComponent,
     PedalDetailsComponent,
-    PedalListComponent
+    PedalListComponent,
+    EditSongFormComponent
   ],
   imports: [
     BrowserModule,

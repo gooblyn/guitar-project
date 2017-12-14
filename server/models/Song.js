@@ -11,7 +11,7 @@ const songSchema = new Schema({
   pedals: {type: [{
               pedal: { type: Schema.Types.ObjectId, ref:'Pedal' },
               settings: { type: [{
-                            setting: { type: Schema.Types.ObjectId, ref:'PedalSetting' },
+                            setting: { type: String},
                             value: {type: Number}
                         }]}
           }],

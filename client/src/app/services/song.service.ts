@@ -45,4 +45,9 @@ export class SongService {
     return this.http.put(`${BASE_URL}/editTab/${song}`, {textTab}, this.options)
       .map((res) => res.json());
   }
+
+  getEdit(id) {
+    return this.http.get(`${BASE_URL}/edit/${id}`, this.options)
+      .map((res) => res.json());
+  }
 }

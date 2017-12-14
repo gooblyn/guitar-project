@@ -5,6 +5,7 @@ import { SignupFormComponent } from './signup-form/signup-form.component';
 import { LoginFormComponent } from './login-form/login-form.component';
 import { ProfileComponent } from './profile/profile.component';
 import { NewSongFormComponent } from './new-song-form/new-song-form.component';
+import { EditSongFormComponent } from './edit-song-form/edit-song-form.component';
 import { SongListComponent } from './song-list/song-list.component';
 import { SongDetailsComponent } from './song-details/song-details.component';
 import { NewGuitarFormComponent } from './new-guitar-form/new-guitar-form.component';
@@ -25,6 +26,7 @@ export const routes: Routes = [
     { path: 'newSong',  component: NewSongFormComponent,  },
     { path: 'songCollection',  component: SongListComponent,  },
     { path: 'song/:id',  component: SongDetailsComponent,  },
+    { path: 'editSong/:id',  component: EditSongFormComponent,  },
     { path: 'newGuitar',  component: NewGuitarFormComponent,  },
     { path: 'guitarCollection',  component: GuitarListComponent,  },
     { path: 'guitar/:id',  component: GuitarDetailsComponent,  },

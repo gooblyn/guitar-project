@@ -1,0 +1,32 @@
+<div *ngIf="song" class="songList">
+  <form (ngSubmit)="submitForm(myForm)" #myForm="ngForm">
+    <label> Artist: </label>
+    <input type="text" name="artist" [(ngModel)]="artist" required />
+    <br>
+    <label> Title: </label>
+    <input type="text" name="title" [(ngModel)]="name" required />
+    <br>
+    <label> Tab:</label>
+    <textarea [(ngModel)]="tab" name="tab" rows="100" cols="100"></textarea>
+    <br>
+    <label>Guitar:</label>
+    <select name="guitar" [(ngModel)]="guitar">
+      <option *ngFor="let g of guitAr" value={{g.trade}}>{{g.model}}</option>
+    </select>
+    <br>
+    <label>Amplifier:</label>
+    <select name="ampli" [(ngModel)]="ampli">
+      <option *ngFor="let a of ampliAr" value={{a.trade}}>{{a.model}}</option>
+    </select>
+    <br>
+    <label>Pedals:</label><br>
+    <div *ngFor="let p of pedAr">
+      <label><input type="checkbox" name={{p._id}} value={{p.trade}} ngModel/>{{p.pedType}} - {{p.trade}} - {{p.model}}</label>
+      <div *ngFor="let set of p.setArray">
+        <label>{{set}}: </label><input type="number" name={{set}} min="1" max="12" ngModel>
+      </div>
+    </div>
+    <button type="submit"> Update </button>
+  </form>
+  <a [routerLink]="['/songCollection']">Go back</a>
+</div>

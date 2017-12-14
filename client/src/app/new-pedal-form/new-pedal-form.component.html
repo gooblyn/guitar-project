@@ -1,32 +1,35 @@
-<form (ngSubmit)="submitForm(myForm)" #myForm="ngForm">
-  <label> Trade: </label>
-  <input type="text" name="trade" [(ngModel)]="trade" required />
-  <br>
-  <label> Model: </label>
-  <input type="text" name="model" [(ngModel)]="model" required />
-  <br>
-  <label>Type:</label>
-  <select name="type" class="" [(ngModel)]="type">
-    <option *ngFor="let type of pedType" value={{type}}>{{type}}</option>
-  </select>
-  <br>
-  <label>Settings:</label><br>
-  <label><input type="checkbox" name="Bases" value="Bases" ngModel/>Bases</label><br>
-  <label><input type="checkbox" name="Blend" value="Blend" ngModel/>Blend</label><br>
-  <label><input type="checkbox" name="Comp" value="Comp" ngModel/>Comp</label><br>
-  <label><input type="checkbox" name="Delay" value="Delay" ngModel/>Delay</label><br>
-  <label><input type="checkbox" name="Decay" value="Decay" ngModel/>Decay</label><br>
-  <label><input type="checkbox" name="Depth" value="Depth" ngModel/>Depth</label><br>
-  <label><input type="checkbox" name="Drive" value="Drive" ngModel/>Drive</label><br>
-  <label><input type="checkbox" name="Feedback" value="Feedback" ngModel/>Feedback</label><br>
-  <label><input type="checkbox" name="Gate" value="Gate" ngModel/>Gate</label><br>
-  <label><input type="checkbox" name="Level" value="Level" ngModel/>Level</label><br>
-  <label><input type="checkbox" name="Mode" value="Mode" ngModel/>Mode</label><br>
-  <label><input type="checkbox" name="Rate" value="Rate" ngModel/>Rate</label><br>
-  <label><input type="checkbox" name="Shape" value="Shape" ngModel/>Shape</label><br>
-  <label><input type="checkbox" name="Speed" value="Speed" ngModel/>Speed</label><br>
-  <label><input type="checkbox" name="Treble" value="Treble" ngModel/>Treble</label><br>
-  <label><input type="checkbox" name="Tone" value="Tone" ngModel/>Tone</label><br>
-  <label><input type="checkbox" name="Volume/Gain" value="Volume/Gain" ngModel/>Volume/Gain</label><br>
-  <button type="submit"> Create </button>
-</form>
+<div *ngIf="auth.user" class="songList">
+  <form (ngSubmit)="submitForm(myForm)" #myForm="ngForm">
+    <label> Trade: </label>
+    <input type="text" name="trade" [(ngModel)]="trade" required />
+    <br>
+    <label> Model: </label>
+    <input type="text" name="model" [(ngModel)]="model" required />
+    <br>
+    <label>Type:</label>
+    <select name="type" class="" [(ngModel)]="type">
+      <option *ngFor="let type of pedType" value={{type}}>{{type}}</option>
+    </select>
+    <br>
+    <label>Settings:</label><br>
+    <label><input type="checkbox" name="Bases" value="Bases" ngModel/>Bases</label><br>
+    <label><input type="checkbox" name="Blend" value="Blend" ngModel/>Blend</label><br>
+    <label><input type="checkbox" name="Comp" value="Comp" ngModel/>Comp</label><br>
+    <label><input type="checkbox" name="Delay" value="Delay" ngModel/>Delay</label><br>
+    <label><input type="checkbox" name="Decay" value="Decay" ngModel/>Decay</label><br>
+    <label><input type="checkbox" name="Depth" value="Depth" ngModel/>Depth</label><br>
+    <label><input type="checkbox" name="Drive" value="Drive" ngModel/>Drive</label><br>
+    <label><input type="checkbox" name="Feedback" value="Feedback" ngModel/>Feedback</label><br>
+    <label><input type="checkbox" name="Gate" value="Gate" ngModel/>Gate</label><br>
+    <label><input type="checkbox" name="Level" value="Level" ngModel/>Level</label><br>
+    <label><input type="checkbox" name="Mode" value="Mode" ngModel/>Mode</label><br>
+    <label><input type="checkbox" name="Rate" value="Rate" ngModel/>Rate</label><br>
+    <label><input type="checkbox" name="Shape" value="Shape" ngModel/>Shape</label><br>
+    <label><input type="checkbox" name="Speed" value="Speed" ngModel/>Speed</label><br>
+    <label><input type="checkbox" name="Treble" value="Treble" ngModel/>Treble</label><br>
+    <label><input type="checkbox" name="Tone" value="Tone" ngModel/>Tone</label><br>
+    <label><input type="checkbox" name="Volume/Gain" value="Volume/Gain" ngModel/>Volume/Gain</label><br>
+    <button type="submit"> Create </button>
+  </form>
+  <a [routerLink]="['/pedalCollection']">Go back</a>
+</div>
