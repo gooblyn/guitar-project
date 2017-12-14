@@ -50,4 +50,9 @@ export class SongService {
     return this.http.get(`${BASE_URL}/edit/${id}`, this.options)
       .map((res) => res.json());
   }
+
+  editSong(info, id){
+    return this.http.put(`${BASE_URL}/edit/${id}`, {info}, this.options)
+      .map(res => res.json())
+  }
 }

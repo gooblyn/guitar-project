@@ -21,6 +21,7 @@ songRoutes.get('/collection', ensureLoggedIn('/'), (req, res, next) => {
 songRoutes.get('/collection/:id', ensureLoggedIn('/'), (req, res) => {
   console.log("GET the details of one song");
   Song.findById(req.params.id)
+    .populate("pedals")
     .then(o => res.json(o))
     .catch(e => res.json(e));
 });
@@ -134,9 +135,8 @@ songRoutes.get('/edit/:id', ensureLoggedIn('/'), (req, res, next) => {
 /* PUT - Edit the whole information of the song. */
 songRoutes.put('/edit/:id', ensureLoggedIn('/'), (req, res) => {
   console.log("PUT The edited song");
-  const {name, guitar, amplifier} = req.body;
-  // Pte meter pedales... a ver cómo!!!!
-  const updates = {name, guitar, amplifier};
+  const updates = {name, artist, textTab, guitar, amplifier, pedals} = req.body.info;
+  console.log(updates);
   Song.findByIdAndUpdate(req.params.id, updates, {new:true})
     .then(p => res.status(200).json(p))
     .catch(e => res.status(500).json({error:e.message}));

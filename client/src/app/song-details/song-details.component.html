@@ -2,6 +2,16 @@
   <h2>{{ song.artist }} - {{ song.name }}</h2>
   <br>
   <textarea name="tablature" rows="100" cols="100" disabled="disabled">{{song.textTab}}</textarea>
+  <h2>You play the song with:</h2>
+    <h3>guitar: {{song.guitar}}</h3>
+    <h3>amplifier: {{song.amplifier}}</h3>
+    <h3>pedals:</h3>
+    <div *ngFor="let y of rori">
+      <h4>Pedal: {{y.pedal}}</h4>
+      <div *ngFor="let w of y.settings">
+        {{w.setting}} - {{w.value}}
+      </div>
+    </div>
   <button (click)="deleteSong()"> Delete </button><br>
   <a [routerLink]="['/editSong', song._id]">Edit</a>
   <a [routerLink]="['/songCollection']">Go back</a>

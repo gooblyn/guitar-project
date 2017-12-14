@@ -10,6 +10,7 @@ import { Router, ActivatedRoute } from '@angular/router';
 })
 export class SongDetailsComponent implements OnInit {
   song: any;
+  rori;
   constructor(
     private router: Router,
     private route: ActivatedRoute,
@@ -27,6 +28,7 @@ export class SongDetailsComponent implements OnInit {
     this.songServ.get(id)
       .subscribe((song) => {
         this.song = song;
+        this.rori = song.pedals;
       });
   }
 

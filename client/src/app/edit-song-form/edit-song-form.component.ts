@@ -22,8 +22,8 @@ export class EditSongFormComponent implements OnInit {
     name:"",
     texTab:"",
     guitar:"",
-    ampli:"",
-    pedal:[{}]
+    amplifier:"",
+    pedals:[{}]
   };
   numbers = ["1","2","3","4","5","6","7","8","9","10","11","12"];
   constructor(
@@ -52,15 +52,21 @@ export class EditSongFormComponent implements OnInit {
       });
   }
 
+  onlyUnique(value, index, self) {
+    return self.indexOf(value) === index;
+  }
+
   submitForm(form){
     this.formInfo.artist = form.value.artist;
     this.formInfo.name = form.value.title;
     this.formInfo.texTab = form.value.tab;
     this.formInfo.guitar = form.value.guitar;
-    this.formInfo.ampli = form.value.ampli;
+    this.formInfo.amplifier = form.value.ampli;
 
     let objectCosas = [];
-    let array=[];
+    let array1=[];
+    let array2=[];
+    let nbr="";
     let prueba;
     let arrayParaTrabajar = [];
     for (let P in form.value){
@@ -74,18 +80,34 @@ export class EditSongFormComponent implements OnInit {
         // console.log(prueba);
       if (prueba.length > 0)
         arrayParaTrabajar.push(prueba);
+        array1.push(prueba[0]);
       }
     }
+    array2 = array1.filter( this.onlyUnique );
     let settingsToObject= [];
-    for (let x = 0; x < arrayParaTrabajar.length ; x++){
-      settingsToObject.push({ setting: arrayParaTrabajar[x][1],
-                              value: arrayParaTrabajar[x][2]});
+
+    for (let e=0; e<array2.length;e++){
+      for (let x = 0; x < arrayParaTrabajar.length ; x++){
+        if (array2[e] == arrayParaTrabajar[x][0]){
+          nbr= arrayParaTrabajar[x][1];
+          settingsToObject.push({ setting: arrayParaTrabajar[x][2],
+                                  value: arrayParaTrabajar[x][3]});
+        }
+      }
+      objectCosas.push({
+        pedal:nbr,
+        settings: settingsToObject
+      })
+      settingsToObject=[];
     }
-    objectCosas.push({
-      pedal:prueba[0],
-      settings: settingsToObject
-    })
-    this.formInfo.pedal = objectCosas;
-    console.log(this.formInfo);
+    this.formInfo.pedals = objectCosas;
+    // console.log(this.formInfo);
+    console.log(`Updating the song`);
+    // console.log(this.song.song);
+    this.songServ.editSong(this.formInfo, this.song.song._id)
+      .subscribe(() => {
+        this.router.navigate(['/songCollection']);
+        console.log("Song updated");
+      });
   }
 }

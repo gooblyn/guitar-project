@@ -11,12 +11,12 @@
     <br>
     <label>Guitar:</label>
     <select name="guitar" [(ngModel)]="guitar">
-      <option *ngFor="let g of guitAr" value={{g._id}}>{{g.model}}</option>
+      <option *ngFor="let g of guitAr" value={{g.trade}}.{{g.model}}>{{g.model}}</option>
     </select>
     <br>
     <label>Amplifier:</label>
     <select name="ampli" [(ngModel)]="ampli">
-      <option *ngFor="let a of ampliAr" value={{a._id}}>{{a.model}}</option>
+      <option *ngFor="let a of ampliAr" value={{a.trade}}.{{a.model}}>{{a.model}}</option>
     </select>
     <br>
     <label>Pedals:</label><br>
@@ -25,7 +25,7 @@
       <div *ngFor="let set of p.setArray">
         <div *ngIf="test.checked">
           <label>{{set}}: </label>
-          <select name=object.{{p._id}}.{{set}} ngModel>
+          <select name=object.{{p._id}}.{{p.pedType}}.{{set}} ngModel>
             <option *ngFor="let ro of numbers" value={{ro}}>{{ro}}</option>
           </select>
         </div>

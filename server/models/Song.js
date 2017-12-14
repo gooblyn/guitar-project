@@ -6,10 +6,10 @@ const songSchema = new Schema({
   artist: {type:String, required:true},
   textTab: {type:String, required:true},
   htmlTab: {type:String, required:true},
-  guitar: { type: Schema.Types.ObjectId, ref:'Guitar' },
-  amplifier: { type: Schema.Types.ObjectId, ref:'Amplifier' },
+  guitar: { type: String },
+  amplifier: { type: String },
   pedals: {type: [{
-              pedal: { type: Schema.Types.ObjectId, ref:'Pedal' },
+              pedal: { type: String },
               settings: { type: [{
                             setting: { type: String},
                             value: {type: Number}
