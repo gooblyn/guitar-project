@@ -17,6 +17,7 @@ export class ProfileComponent implements OnInit {
     public router: Router){ }
 
   ngOnInit() {
+    
     this.userS.getProfileSongs()
       .map(songList =>  this.songList = songList)
       .subscribe();

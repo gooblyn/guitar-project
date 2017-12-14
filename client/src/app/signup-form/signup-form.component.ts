@@ -19,7 +19,7 @@ export class SignupFormComponent implements OnInit {
     public auth: AuthService,
     public router: Router
   ) { }
-  ngOnInit() { }
+  ngOnInit() {this.auth.home=true; }
 
   signup() {
     const {username, password, name, email} = this.formInfo;

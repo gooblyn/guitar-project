@@ -23,7 +23,7 @@ export class LoginFormComponent implements OnInit {
     public auth: AuthService,
     public router: Router) { }
 
-  ngOnInit() { }
+  ngOnInit() {this.auth.home=true;}
 
   login () {
     const {username, password} = this.formInfo;
