@@ -3,7 +3,7 @@
     font-family: 'Rock Salt', cursive;
 }
 #nav_wrapper {
-    width: 960px;
+    width: 100%;
     margin: 0 auto;
     text-align: left;
 }
