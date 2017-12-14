@@ -1,4 +1,4 @@
-require('dotenv').config();
+require('dotenv').load();
 const express = require('express');
 const path = require('path');
 const favicon = require('serve-favicon');
@@ -65,6 +65,10 @@ app.use('/guitar', guitar);
 app.use('/pedal', pedal);
 app.use('/song', song);
 app.use('/user', user);
+
+app.use((req, res, next) => {
+  res.sendfile(__dirname + '/public/index.html');
+});
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
