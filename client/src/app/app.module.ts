@@ -32,6 +32,7 @@ import { NewPedalFormComponent } from './new-pedal-form/new-pedal-form.component
 import { PedalDetailsComponent } from './pedal-details/pedal-details.component';
 import { PedalListComponent } from './pedal-list/pedal-list.component';
 import { EditSongFormComponent } from './edit-song-form/edit-song-form.component';
+import { NavbarComponent } from './navbar/navbar.component';
 
 
 @NgModule({
@@ -53,7 +54,8 @@ import { EditSongFormComponent } from './edit-song-form/edit-song-form.component
     NewPedalFormComponent,
     PedalDetailsComponent,
     PedalListComponent,
-    EditSongFormComponent
+    EditSongFormComponent,
+    NavbarComponent
   ],
   imports: [
     BrowserModule,

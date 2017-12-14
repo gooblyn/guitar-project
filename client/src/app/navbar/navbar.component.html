@@ -1,0 +1,44 @@
+<div *ngIf="!auth.user" id="nav" class="navbar navbar-default ">
+  <div  class="container-fluid collapse navbar-collapse navbar-left">
+      <ul class="nav navbar-nav">
+          <li> <a>my guitar project</a></li>
+      </ul>
+  </div>
+</div>
+<div *ngIf="auth.user" id="nav" class="navbar navbar-default ">
+    <div class="container-fluid collapse navbar-collapse navbar-left">
+        <ul>
+            <li> <a >Song</a>
+                <ul>
+                    <li><a [routerLink]="['/newSong']">Add a Song</a></li>
+                    <li><a [routerLink]="['/songCollection']">Show Collection</a></li>
+                </ul>
+            </li>
+            <li> <a>Guitar</a>
+                <ul>
+                    <li><a [routerLink]="['/newGuitar']">Add a Guitar</a></li>
+                    <li><a [routerLink]="['/guitarCollection']">Show Collection</a></li>
+                </ul>
+            </li>
+            <li> <a>Amplifier</a>
+                <ul>
+                    <li><a [routerLink]="['/newAmpli']">Add a Amplifier</a></li>
+                    <li><a [routerLink]="['/ampliCollection']">Show Collection</a></li>
+                </ul>
+            </li>
+            <li> <a>Pedal</a>
+                <ul>
+                    <li><a [routerLink]="['/newPedal']">Add a Pedal</a></li>
+                    <li><a [routerLink]="['/pedalCollection']">Show Collection</a></li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+    <!-- Nav wrapper end -->
+    <div  class="container-fluid collapse navbar-collapse navbar-right">
+        <ul class="nav navbar-nav navbar-right">
+            <li> <button (click)="logout()">Logout ({{ auth.user.username }})</button></li>
+        </ul>
+    </div>
+</div>
+<!-- Nav end -->
