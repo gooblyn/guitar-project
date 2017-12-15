@@ -21,7 +21,7 @@ profileRoutes.get('/profile', ensureLoggedIn('/'), (req, res, next) => {
       user.songArray.sort(function(a,b){
         return new Date(b.updated_at) - new Date(a.updated_at);
       })
-      res.status(200).json(user.songArray.splice(0, 2));
+      res.status(200).json(user.songArray.splice(0, 5));
     })
     .catch(e => res.status(500).json({
       error: e.message

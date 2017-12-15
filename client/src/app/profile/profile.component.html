@@ -1,22 +1,30 @@
 <div *ngIf="auth.user" class="profile">
-  <div class="pic">
-    <img src="{{ auth.user?.photo }}" alt="User photo">
+  <div class="container">
+    <div class="row">
+  		<div class="col-lg-12">
+        <div class="card hovercard">
+          <div class="cardheader"></div>
+          <div class="avatar">
+            <img alt="User photo" src="{{ auth.user?.photo }}">
+          </div>
+          <div class="info">
+            <div class="title">
+              <a target="_blank">Hello {{ auth.user.username}}</a>
+            </div>
+          </div>
+        </div>
+        <div class="lastSongs">
+          <h3>This are the last songs you've been working on:</h3>
+          <ul *ngFor="let song of songList">
+            <li>
+              <span class="glyphicon glyphicon-music" aria-hidden="true"></span>
+              {{ song.artist}} &mdash; {{ song.name }} &mdash;
+              <a [routerLink]="['/song', song._id]">View Song</a> &mdash; 
+              <a [routerLink]="['/']">Listen</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
   </div>
-
-  <div class="hi">
-    <h2>Hello {{ auth.user.username}}</h2>
-  </div>
-
-  <div class="lastSongs">
-    <h3>This are the last songs you've been working on:</h3>
-  </div>
-
-  <ul *ngFor="let song of songList">
-    <li>
-      {{ song.artist}} - {{ song.name }}
-      <a [routerLink]="['/song', song._id]">View Song</a>
-      <a [routerLink]="['/']">Listen</a>
-    </li>
-  </ul>
-
 </div>
