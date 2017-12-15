@@ -21,7 +21,7 @@ songRoutes.get('/collection', ensureLoggedIn('/'), (req, res, next) => {
 songRoutes.get('/collection/:id', ensureLoggedIn('/'), (req, res) => {
   console.log("GET the details of one song");
   Song.findById(req.params.id)
-    .populate("pedals")
+    // .populate("pedals")
     .then(o => res.json(o))
     .catch(e => res.json(e));
 });
@@ -119,8 +119,8 @@ songRoutes.put('/editTab/:id', ensureLoggedIn('/'), (req, res) => {
 songRoutes.get('/edit/:id', ensureLoggedIn('/'), (req, res, next) => {
   console.log("GET the needed information for edit a song");
   Song.findById(req.params.id)
-    .populate('guitar')
-    .populate('amplifier')
+    // .populate('guitar')
+    // .populate('amplifier')
     .then(song => {
       User.findOne({_id: req.user._id})
         .populate('guitArray')

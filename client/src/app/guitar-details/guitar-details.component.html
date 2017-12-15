@@ -1,7 +1,15 @@
 <div *ngIf="guitar">
-  <h2>{{ guitar.trade }} - {{ guitar.model }} - {{guitar.year}}</h2>
-  <br>
-  <img [src]="guitar.photo" alt="">
-  <button (click)="deleteGuitar()"> Delete </button>-
-  <a [routerLink]="['/guitarCollection']">Go back</a>
+  <div id="details" class="col-xs-12">
+    <div class="photomaintenance col-sm-5">
+      <div class="detail-photo">
+        <img [src]="guitar.photo" alt="guitar photo">
+      </div>
+    </div>
+    <div class="detailtext col-sm-6 col-sm-offset-1">
+      <p><b> Trade: </b> {{ guitar.trade }}</p><br>
+      <p><b> Model: </b> {{ guitar.model }}</p><br>
+      <p><b> Year: </b> {{guitar.year}}</p><br>
+    </div>
+    <button id="detailbutton"(click)="deleteGuitar()"> Delete </button>
+  </div>
 </div>

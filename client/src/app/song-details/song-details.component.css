@@ -1,0 +1,34 @@
+div {
+
+  font-family: 'Rock Salt', cursive;
+  width: 70%;
+  margin: 20px auto auto auto;
+}
+
+div h2{
+  text-align: center;
+  margin: 15px auto 30px auto;
+  color: black;
+}
+
+textarea {
+  padding-left: 5%
+}
+
+div button {
+  width:10%;
+  text-align: center;
+  background-color: black;
+  color: white;
+  margin: 5px auto 5px 300px;
+  color: white;
+  padding: 5px 10px;
+  border: 1px solid black;
+  border-radius: 10px;
+  font-weight: bold;
+  font-size: 15px;
+}
+
+a{
+  color:white;
+}

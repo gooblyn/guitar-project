@@ -1,12 +1,19 @@
 <div *ngIf="pedal">
-  <h2>{{ pedal.trade }} - {{ pedal.model }} - {{pedal.pedType}}</h2>
-  <br>
-  <h3>Pedal Settings:</h3>
-  <ul *ngFor="let set of setPedal">
-    <li>{{ set }}</li>
-  </ul>
-
-  <img [src]="pedal.photo" alt=""><br>
-  <button (click)="deletePedal()"> Delete </button><br>
-  <a [routerLink]="['/pedalCollection']">Go back</a>
+  <div id="details" class="col-xs-12">
+    <div class="photomaintenance col-sm-5">
+      <div class="detail-photo">
+        <img [src]="pedal.photo" alt="pedal photo">
+      </div>
+    </div>
+    <div class="detailtext col-sm-6 col-sm-offset-1">
+      <p><b> Trade: </b> {{ pedal.trade }}</p><br>
+      <p><b> Model: </b> {{ pedal.model }}</p><br>
+      <p><b> Year: </b> {{pedal.pedType}}</p><br>
+      <p><b> Pedal Settings: </b></p><br>
+      <ul *ngFor="let set of setPedal">
+        <li>{{ set }}</li>
+      </ul>
+    </div>
+    <button id="detailbutton"(click)="deletePedal()"> Delete </button>
+  </div>
 </div>

@@ -1,18 +1,16 @@
 <div *ngIf="song">
-  <h2>{{ song.artist }} - {{ song.name }}</h2>
-  <br>
-  <textarea name="tablature" rows="100" cols="100" disabled="disabled">{{song.textTab}}</textarea>
+  <h2>{{ song.artist }} - {{ song.name }}:</h2>
+  <textarea [(ngModel)]="song.textTab" name="tablature" rows="50" cols="100" readonly></textarea>
   <h2>You play the song with:</h2>
-    <h3>guitar: {{song.guitar}}</h3>
-    <h3>amplifier: {{song.amplifier}}</h3>
-    <h3>pedals:</h3>
+    <h3><b>GUITAR: </b> {{song.guitar}}</h3><br>
+    <h3><b>AMPLIFIER: </b> {{song.amplifier}}</h3><br>
+    <h3><b>PEDALS: </b></h3><br>
     <div *ngFor="let y of rori">
       <h4>Pedal: {{y.pedal}}</h4>
       <div *ngFor="let w of y.settings">
-        {{w.setting}} - {{w.value}}
+        <h4>{{w.setting}} - {{w.value}}</h4>
       </div>
     </div>
-  <button (click)="deleteSong()"> Delete </button><br>
-  <a [routerLink]="['/editSong', song._id]">Edit</a>
-  <a [routerLink]="['/songCollection']">Go back</a>
+  <button (click)="deleteSong()"> Delete </button>
+  <button><a [routerLink]="['/editSong', song._id]">Edit</a></button>
 </div>

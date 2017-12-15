@@ -42,6 +42,7 @@ export class EditSongFormComponent implements OnInit {
   getSongDetails(id) {
     this.songServ.getEdit(id)
       .subscribe((song) => {
+        console.log(song);
         this.song = song;
         this.artist = song.song.artist;
         this.name = song.song.name;
