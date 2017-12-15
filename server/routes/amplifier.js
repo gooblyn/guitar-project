@@ -13,6 +13,13 @@ const mongoose = require('mongoose');
 /* POST - Create New Amplifier. */
 amplifierRoutes.post('/new', ensureLoggedIn('/'), (req, res) => {
   console.log("POST New Ampli");
+  let photo;
+  if (req.body.trade == "Marshall")
+    photo = "https://icon-icons.com/icons2/559/PNG/512/Amplifier_1_icon-icons.com_53700.png";
+  if (req.body.trade == "Yamaha")
+    photo = "https://png.icons8.com/windows/540/guitar-amp.png"
+  if (req.body.trade == "Ibanez")
+    photo = "https://d30y9cdsu7xlg0.cloudfront.net/png/50747-200.png"
   const {
     trade,
     model,
@@ -23,7 +30,8 @@ amplifierRoutes.post('/new', ensureLoggedIn('/'), (req, res) => {
     trade,
     model,
     year,
-    power
+    power,
+    photo
   });
   ampli.save()
     .then((ampli) => {

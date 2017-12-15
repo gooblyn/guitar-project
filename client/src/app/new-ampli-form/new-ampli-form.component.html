@@ -1,18 +1,25 @@
 <form>
   <h2> Add a New ampli to your collection: </h2>
+  <div class="form-group">
   <label> Trade: </label>
-  <input type="text" [(ngModel)]="formInfo.trade" name="trade"/>
+  <input class="form-control" type="text" [(ngModel)]="formInfo.trade" name="trade"/>
+  </div>
   <br>
+  <div class="form-group">
   <label> Model: </label>
-  <input type="text" [(ngModel)]="formInfo.model" name="model"/>
+  <input class="form-control" type="text" [(ngModel)]="formInfo.model" name="model"/>
+  </div>
   <br>
+  <div class="form-group">
   <label> Power: </label>
-  <input type="text" [(ngModel)]="formInfo.power" name="power"/>
+  <input class="form-control" type="text" [(ngModel)]="formInfo.power" name="power"/>
+  </div>
   <br>
+  <div class="form-group">
   <label> Year: </label>
-  <input type="number" [(ngModel)]="formInfo.year" name="year"/>
+  <input class="form-control" type="number" [(ngModel)]="formInfo.year" name="year"/>
+  </div>
   <br>
   <button (click)="create()"> CREATE </button>
+  <a [routerLink]="['/profile']">CANCEL</a>
 </form>
-
-<a [routerLink]="['/ampliCollection']">Go back</a>

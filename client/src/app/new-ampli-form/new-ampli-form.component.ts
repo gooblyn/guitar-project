@@ -30,7 +30,7 @@ export class NewAmpliFormComponent implements OnInit {
     const {trade, model, power, year} = this.formInfo;
     if (trade != "" && model != ""){
       console.log(`Creating a new ampli`);
-      this.ampli.create(trade, model, power,year)
+      this.ampli.create(trade, model, power, year)
         .subscribe(() => {
           this.router.navigate(['/ampliCollection']);
           console.log("Ampli created");
