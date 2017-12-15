@@ -17,10 +17,9 @@
           <h3>This are the last songs you've been working on:</h3>
           <ul *ngFor="let song of songList">
             <li>
-              <span class="glyphicon glyphicon-music" aria-hidden="true"></span>
+              <span class="glyphicon glyphicon-music" aria-hidden="true"></span> &mdash;
               {{ song.artist}} &mdash; {{ song.name }} &mdash;
-              <a [routerLink]="['/song', song._id]">View Song</a> &mdash; 
-              <a [routerLink]="['/']">Listen</a>
+              <a [routerLink]="['/song', song._id]">View Song</a> 
             </li>
           </ul>
         </div>

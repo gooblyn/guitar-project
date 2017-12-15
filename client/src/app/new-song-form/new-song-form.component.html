@@ -1,19 +1,23 @@
 <form *ngIf="!tab">
   <h2> Add a New song to your collection: </h2>
-  <label> Artist: </label>
-  <input type="text" [(ngModel)]="formInfo.artist" name="artist"/>
-  <label> Title: </label>
-  <input type="text" [(ngModel)]="formInfo.name" name="name"/>
+  <div class="form-group">
+    <label> Artist: </label>
+    <input class="form-control" type="text" [(ngModel)]="formInfo.artist" name="artist"/>
+  </div>
+  <div class="form-group">
+    <label> Title: </label>
+    <input class="form-control" type="text" [(ngModel)]="formInfo.name" name="name"/>
+  </div>
   <br>
   <button (click)="create()"> CREATE </button>
   <button (click)="search()"> IMPORT </button>
 </form>
 
-<form *ngIf="tab">
+<div *ngIf="tab">
   <h2>{{ tab.artist }} - {{ tab.name }}:</h2>
-  <textarea [(ngModel)]="tab.textTab" name="tablature" rows="100" cols="100"></textarea>
+  <textarea [(ngModel)]="tab.textTab" name="tablature" rows="50" cols="100"></textarea>
   <button (click)="cancel()"> CANCEL </button>
   <button (click)="save()"> SAVE </button>
-</form>
+</div>
 
 <a [routerLink]="['/profile']">Go back</a>

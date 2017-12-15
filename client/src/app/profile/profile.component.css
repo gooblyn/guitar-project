@@ -12,12 +12,12 @@ li {
   font-size: 1.1em;
 }
 .lastSongs{
-  margin-top: 50px;
+  margin: 50px auto 30px auto;
   color: black;
 }
 
 .lastSongs ul{
-  margin: 30px auto auto 38%;
+  margin: 30px auto auto 25%;
   text-align: left;
   width: 50%;
 }
