@@ -13,6 +13,13 @@ const mongoose = require('mongoose');
 /* POST - Create New Guitar. */
 guitarRoutes.post('/new', ensureLoggedIn('/'), (req, res) => {
   console.log("POST New Guitar");
+  let photo;
+  if (req.body.trade == "Fender")
+    photo = "https://image.freepik.com/iconos-gratis/bajo-electrico-silueta-de-la-guitarra_318-43774.jpg";
+  if (req.body.trade == "Epiphone")
+    photo = "https://image.freepik.com/iconos-gratis/silueta-de-la-guitarra-acustica_318-43636.jpg"
+  if (req.body.trade == "Harley")
+    photo = "https://image.freepik.com/iconos-gratis/instrumento-musical-de-la-guitarra-electrica_318-42907.jpg"
   const {
     trade,
     model,
@@ -21,7 +28,8 @@ guitarRoutes.post('/new', ensureLoggedIn('/'), (req, res) => {
   const guitar = new Guitar({
     trade,
     model,
-    year
+    year,
+    photo
   });
   guitar.save()
     .then((guitar) => {

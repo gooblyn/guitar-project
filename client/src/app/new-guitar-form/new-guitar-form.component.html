@@ -1,15 +1,20 @@
 <form>
   <h2> Add a New guitar to your collection: </h2>
-  <label> Trade: </label>
-  <input type="text" [(ngModel)]="formInfo.trade" name="trade"/>
+  <div class="form-group">
+    <label> Trade: </label>
+    <input class="form-control" type="text" [(ngModel)]="formInfo.trade" name="trade"/>
+  </div>
   <br>
-  <label> Model: </label>
-  <input type="text" [(ngModel)]="formInfo.model" name="model"/>
+  <div class="form-group">
+    <label> Model: </label>
+    <input class="form-control" type="text" [(ngModel)]="formInfo.model" name="model"/>
+  </div>
   <br>
-  <label> Year: </label>
-  <input type="number" [(ngModel)]="formInfo.year" name="year"/>
+  <div class="form-group">
+    <label> Year: </label>
+    <input class="form-control" type="number" [(ngModel)]="formInfo.year" name="year"/>
+  </div>
   <br>
   <button (click)="create()"> CREATE </button>
+  <a [routerLink]="['/profile']">CANCEL</a>
 </form>
-
-<a [routerLink]="['/guitarCollection']">Go back</a>
