@@ -1,25 +1,29 @@
-<div *ngIf="auth.user" class="songList">
-  <div class="pic">
-    <img src="{{ auth.user?.photo }}" alt="User photo">
+<div *ngIf="auth.user" class="profile">
+  <div class="container">
+    <div class="row">
+  		<div class="col-lg-12">
+        <div class="card hovercard">
+          <div class="cardheader"></div>
+          <div class="avatar">
+            <img alt="User photo" src="{{ auth.user?.photo }}">
+          </div>
+          <div class="info">
+            <div class="title">
+              <a target="_blank">Hello {{ auth.user.username}}</a>
+            </div>
+          </div>
+        </div>
+        <div class="lastSongs">
+          <h3>Your songs:</h3>
+          <ul *ngFor="let song of songList">
+            <li>
+              <span class="glyphicon glyphicon-music" aria-hidden="true"></span> &mdash;
+              {{ song.artist}} &mdash; {{ song.name }} &mdash;
+              <a [routerLink]="['/song', song._id]">View Song</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
   </div>
-
-  <div class="h1">
-    <h2>{{ auth.user.username}}</h2>
-  </div>
-
-  <div class="songCollection">
-    <h3>Your songs:</h3>
-  </div>
-
-  <ul *ngFor="let song of songList">
-    <li>
-      {{ song.artist}} - "{{ song.name }}"
-      <a [routerLink]="['/song', song._id]">View</a> -
-      
-      <a [routerLink]="['/']">Listen</a>
-    </li>
-  </ul>
-
-  <a [routerLink]="['/newSong']">Add a new song</a><br>
-  <a [routerLink]="['/profile']">Go back</a>
 </div>

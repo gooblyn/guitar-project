@@ -1,23 +1,27 @@
-<div *ngIf="auth.user" class="pedalList">
-  <div class="pic">
-    <img src="{{ auth.user?.photo }}" alt="User photo">
+<div *ngIf="auth.user">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-12">
+        <div class="card hovercard">
+          <div class="cardheader"></div>
+          <div class="avatar">
+            <img alt="User photo" src="{{ auth.user?.photo }}">
+          </div>
+          <div class="info">
+            <div class="title">
+              <a > {{ auth.user.username}}</a>
+            </div>
+          </div>
+        </div>
+        <div id="collection">
+          <h3>Your guitars:</h3>
+          <div *ngFor="let pedal of pedalList" class="pedal col-md-4">
+            <h4>{{ pedal.trade }} - {{ pedal.model }} - {{ pedal.pedType }}</h4>
+            <img src="{{pedal.photo}}" alt="pedal">
+            <a [routerLink]="['/pedal', pedal._id]"><button class="btn btn-lg btn-link">View Details</button></a>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
-
-  <div class="h1">
-    <h2>{{ auth.user.username}}</h2>
-  </div>
-
-  <div class="pedalCollection">
-    <h3>Your pedals:</h3>
-  </div>
-
-  <ul *ngFor="let pedal of pedalList">
-    <li>
-      {{ pedal.trade }} - {{ pedal.model }} - {{ pedal.pedType }}
-      <a [routerLink]="['/pedal', pedal._id]">View</a>
-    </li>
-  </ul>
-
-  <a [routerLink]="['/newPedal']">Add a new pedal</a><br>
-  <a [routerLink]="['/profile']">Go back</a>
 </div>

@@ -1,23 +1,27 @@
-<div *ngIf="auth.user" class="guitarList">
-  <div class="pic">
-    <img src="{{ auth.user?.photo }}" alt="User photo">
+<div *ngIf="auth.user">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-12">
+        <div class="card hovercard">
+          <div class="cardheader"></div>
+          <div class="avatar">
+            <img alt="User photo" src="{{ auth.user?.photo }}">
+          </div>
+          <div class="info">
+            <div class="title">
+              <a > {{ auth.user.username}}</a>
+            </div>
+          </div>
+        </div>
+        <div id="collection">
+          <h3>Your amplifiers:</h3>
+          <div *ngFor="let ampli of ampliList" class="ampli col-md-4">
+            <h4>{{ ampli.trade }} - "{{ ampli.model }}"</h4>
+            <img src="{{ampli.photo}}" alt="ampli">
+            <a [routerLink]="['/ampli', ampli._id]"><button class="btn btn-lg btn-link">View Details</button></a>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
-
-  <div class="h1">
-    <h2>{{ auth.user.username}}</h2>
-  </div>
-
-  <div class="ampliCollection">
-    <h3>Your amplifiers:</h3>
-  </div>
-
-  <ul *ngFor="let ampli of ampliList">
-    <li>
-      {{ ampli.trade }} - "{{ ampli.model }}" - {{ampli.power}}-{{ ampli.year }}
-      <a [routerLink]="['/ampli', ampli._id]">View</a>
-    </li>
-  </ul>
-
-  <a [routerLink]="['/newAmpli']">Add a new guitar</a><br>
-  <a [routerLink]="['/profile']">Go back</a>
 </div>
