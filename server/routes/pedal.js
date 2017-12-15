@@ -14,11 +14,19 @@ const mongoose = require('mongoose');
 pedalRoutes.post('/new', ensureLoggedIn('/'), (req, res) => {
   console.log("POST New Pedal");
   console.log(req.body);
+  let photo;
+  if (req.body.info.trade == "Ibanez")
+    photo = "https://n6-img-fp.akamaized.net/iconos-gratis/pedal-para-guitarra_318-143360.jpg?size=338&ext=jpg";
+  if (req.body.info.trade == "Boss")
+    photo = "https://image.flaticon.com/icons/svg/131/131207.svg";
+  if (req.body.info.trade == "Moer")
+    photo = "https://d30y9cdsu7xlg0.cloudfront.net/png/25453-200.png";
   const pedal = new Pedal({
     trade: req.body.info.trade,
     model: req.body.info.model,
     pedType: req.body.info.pedType,
-    setArray: req.body.info.setArr
+    setArray: req.body.info.setArr,
+    photo
   });
   console.log(pedal);
   pedal.save()
