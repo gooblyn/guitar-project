@@ -1,37 +1,51 @@
 <div *ngIf="song" class="songList">
   <form (ngSubmit)="submitForm(myForm)" #myForm="ngForm">
-    <label> Artist: </label>
-    <input type="text" name="artist" [(ngModel)]="artist" required />
+    <div class="form-group">
+      <label> Artist: </label>
+      <input class="form-control" type="text" name="artist" [(ngModel)]="artist" required />
+    </div>
     <br>
-    <label> Title: </label>
-    <input type="text" name="title" [(ngModel)]="name" required />
+    <div class="form-group">
+      <label> Title: </label>
+      <input class="form-control" type="text" name="title" [(ngModel)]="name" required />
+    </div>
     <br>
-    <label> Tab:</label>
-    <textarea [(ngModel)]="tab" name="tab" rows="100" cols="100"></textarea>
+    <div class="form-group">
+      <label> Tab:</label>
+      <textarea [(ngModel)]="tab" name="tab" rows="50" cols="80"></textarea>
+    </div>
     <br>
-    <label>Guitar:</label>
-    <select name="guitar" [(ngModel)]="guitar">
-      <option *ngFor="let g of guitAr" value={{g.trade}}.{{g.model}}>{{g.model}}</option>
-    </select>
+    <div class="form-group">
+      <label>Guitar:</label>
+      <select class="form-control" name="guitar" [(ngModel)]="guitar">
+        <option *ngFor="let g of guitAr" value={{g.trade}}.{{g.model}}>{{g.model}}</option>
+      </select>
+    </div>
     <br>
-    <label>Amplifier:</label>
-    <select name="ampli" [(ngModel)]="ampli">
-      <option *ngFor="let a of ampliAr" value={{a.trade}}.{{a.model}}>{{a.model}}</option>
-    </select>
+    <div class="form-group">
+      <label>Amplifier:</label>
+      <select class="form-control" name="ampli" [(ngModel)]="ampli">
+        <option *ngFor="let a of ampliAr" value={{a.trade}}.{{a.model}}>{{a.model}}</option>
+      </select>
+    </div>
     <br>
-    <label>Pedals:</label><br>
-    <div *ngFor="let p of pedAr">
-      <label><input type="checkbox" name={{p._id}} value={{p.trade}} #test ngModel/>{{p.pedType}} - {{p.trade}} - {{p.model}}</label>
-      <div *ngFor="let set of p.setArray">
-        <div *ngIf="test.checked">
-          <label>{{set}}: </label>
-          <select name=object.{{p._id}}.{{p.pedType}}.{{set}} ngModel>
-            <option *ngFor="let ro of numbers" value={{ro}}>{{ro}}</option>
-          </select>
+    <div class="form-group">
+      <label>Pedals:</label><br>
+      <div *ngFor="let p of pedAr" class="ro" >
+        <label><input type="checkbox" name={{p._id}} value={{p.trade}} #test ngModel/>{{p.pedType}} - {{p.trade}} - {{p.model}}</label>
+        <div *ngFor="let set of p.setArray">
+          <div *ngIf="test.checked">
+            <div class="form-group">
+              <label>{{set}}: </label>
+              <select class="form-control" name=object.{{p._id}}.{{p.pedType}}.{{set}} ngModel>
+                <option *ngFor="let ro of numbers" value={{ro}}>{{ro}}</option>
+              </select>
+            </div>
+          </div>
         </div>
       </div>
     </div>
-    <button type="submit"> Update </button>
+    <button type="submit"> UPDATE </button>
+    <a [routerLink]="['/songCollection']">CANCEL</a>
   </form>
-  <a [routerLink]="['/songCollection']">Go back</a>
 </div>
